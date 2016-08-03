@@ -1,0 +1,1 @@
+$('.timezone_help').popover({placement: "bottom"});
