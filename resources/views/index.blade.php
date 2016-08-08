@@ -48,10 +48,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Početna</a></li>
-                    <li><a href="about.html">O nama</a></li>
-                    <li><a href="Services.html">Usluge</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="/">Početna</a></li>
+                    <li><a href="/onama">O nama</a></li>
+                    <li><a href="/usluge">Usluge</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
                 </ul>
             </div>
 
@@ -97,7 +97,9 @@
                 <input style="color:black" id="appendedInputButton"  placeholder="Unesite E-mail adresu" type="text" name="email">
                 <input type="submit" value="Pošalji" />
             </form>
-            <h1>{{ isset($response) ? $response : '' }}</h1>
+            <div class="answer">
+              <h4>{{ isset($response) ? $response : '' }}</h4>
+            </div>  
         </div>
         <div class="span5">
         <h4>Najnovije vesti:</h4>

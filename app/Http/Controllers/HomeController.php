@@ -12,6 +12,18 @@ class HomeController extends BaseController
 		return View('index');
 	}
 
+	public function getAbout() {
+		return View('about');
+	}
+
+	public function getServices() {
+		return View('services');
+	}
+
+	public function getContact() {
+		return View('contact');
+	}
+
     public function checkEmail(Request $request) {
 		$email_post = $request->input('email');
 
@@ -25,5 +37,8 @@ class HomeController extends BaseController
 			$response = 'Uspešno je sačuvan vaš email';
 			return View('index', ['response' => $response]);
 		}
+    }
+    public function sendEmail(Request $request){
+
     }
 }

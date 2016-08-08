@@ -29,3 +29,5 @@ class CreateTableEmails extends Migration
         Schema::drop('Emails');
     }
 }
+
+

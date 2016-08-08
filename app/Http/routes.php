@@ -20,10 +20,42 @@ $app->get( // Početna strana
     ]
 );
 
-$app->post( //unosi novu lozinku i potvrđuje izmene
+$app->get( // O nama strana
+    'onama',
+    [
+        'as'    => "onama",
+        'uses'  => 'HomeController@getAbout',
+    ]
+);
+
+$app->get( // Usluge strana
+    'usluge',
+    [
+        'as'    => "usluge",
+        'uses'  => 'HomeController@getServices',
+    ]
+);
+
+$app->get( // Kontakt strana
+    'kontakt',
+    [
+        'as'    => "kontakt",
+        'uses'  => 'HomeController@getContact',
+    ]
+);
+
+$app->post( // unosi novu lozinku i potvrđuje izmene
     'checkEmail',
     [
     	'as'	=>	'checkEmail',
         'uses' 	=> 	'HomeController@checkEmail',
+    ]
+);
+
+$app->post( // unosi novu lozinku i potvrđuje izmene
+    'sendEmail',
+    [
+        'as'    =>  'sendEmail',
+        'uses'  =>  'HomeController@sendEmail',
     ]
 );
