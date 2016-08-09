@@ -29,16 +29,32 @@ class HomeController extends BaseController
 
 		if (!filter_var($email_post, FILTER_VALIDATE_EMAIL)) {
 			$response = 'Email nije validan';
-		  	return View('index', ['response' => $response]);
+		  	return View('index', ['response1' => $response]);
 		} else {
 			$email = new Email();
 			$email->email = $email_post;
 			$email->save();
 			$response = 'Uspešno je sačuvan vaš email';
-			return View('index', ['response' => $response]);
+			return View('index', ['response1' => $response]);
 		}
     }
     public function sendEmail(Request $request){
+		$name = $request->input('name');
+		$email = $request->input('email');
+		$message = $request->input('message');
+		$response = '';
 
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$response = 'Email nije odgovarajućeg formata';
+		}
+		elseif (!filter_var($name, FILTER_SANITIZE_STRING)) {
+			$response = 'Ime nije odgovarajućeg formata';
+		}
+		elseif (!filter_var($message, FILTER_SANITIZE_STRING)) {
+			$response = 'Poruka nije odgovarajućeg formata';
+		}
+
+		if ($response !== '') return View('contact', ['response2' => $response]);
+		else return View('contact', ['response2' => 'Uspešno ste poslali vaš email']);
     }
 }

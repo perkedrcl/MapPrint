@@ -98,7 +98,7 @@
                 <input type="submit" value="Pošalji" />
             </form>
             <div class="answer">
-              <h4>{{ isset($response) ? $response : '' }}</h4>
+              <h4>{{ isset($response1) ? $response1 : '' }}</h4>
             </div>  
         </div>
         <div class="span5">

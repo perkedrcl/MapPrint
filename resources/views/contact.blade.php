@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            
+
              <!-- ./ Row Content-->
              <div class="row ">
                 <div class="col-md-12" >
@@ -96,21 +96,21 @@
     </div>
 
 </form></div>
-<form>
-        
+<form method="post" action="sendEmail">
+
     <label>Name:</label><br />
     <input name="name" placeholder="Type Here">
-     <br />       
+     <br />
     <label>E-mail:</label><br />
     <input name="email" type="email" placeholder="Type Here">
-      <br />     
+      <br />
     <label>Message:</label><br />
     <textarea name="message" placeholder="Type Here"></textarea>
-       <br/>     
+       <br/>
     <input id="submit" name="submit" type="submit" value="Submit">
-        
+
 </form>
-<h1>{{ isset($response) ? $response : '' }}</h1>
+<h1>{{ isset($response2) ? $response2 : '' }}</h1>
     <!--END CONTACT SECTION -->
 
 
@@ -136,7 +136,7 @@
                 <input style="color:black" id="appendedInputButton"  placeholder="Unesite E-mail adresu" type="text" name="email">
                 <input type="submit" value="Pošalji" />
             </form>
-            <h1>{{ isset($response) ? $response : '' }}</h1>
+            <h1>{{ isset($response1) ? $response1 : '' }}</h1>
         </div>
         <div class="span5">
         <h4>Najnovije vesti:</h4>
@@ -183,7 +183,7 @@
           </li>
         </ul>
         </div>
-    
+
     <div class="span3">
             <h4>Posetite nas</h4>
             <address style="margin-bottom:15px;">
@@ -194,14 +194,14 @@
             Telefon: <i class="icon-phone-sign"></i> &nbsp; 063 8375 122 <br>
             E-mail: <a href="contact.html" title="contact"><i class="icon-envelope-alt"></i> szrmapprint@gmail.com</a><br/>
             Link: <a href="index.html" title="Business ltd"><i class="icon-globe"></i> www.mapprint.com</a><br/><br/>
-            <h5>Brzi linkovi:</h5>    
+            <h5>Brzi linkovi:</h5>
             <a href="services.html" title="services"><i class="icon-cogs"></i> Usluge </a><br/>
             <a href="about.html" title=""><i class="icon-info-sign"></i> O nama </a><br/>
             <a href="contact.html" title="contact"><i class="icon-question-sign"></i> Kontakt </a><br/>
 
-    <h5>Nađite nas na:</h5> 
+    <h5>Nađite nas na:</h5>
     <div style="font-size:2.5em;">
-        <a href="https://www.facebook.com/profile.php?id=100010487207319&fref=ts" role="button" data-toggle="modal" style="display:inline-block; width:1em"> <i class="icon-facebook-sign"><img src= "assets/img/facebook.png" width="50px " height= "50x"  </i> </a> 
+        <a href="https://www.facebook.com/profile.php?id=100010487207319&fref=ts" role="button" data-toggle="modal" style="display:inline-block; width:1em"> <i class="icon-facebook-sign"><img src= "assets/img/facebook.png" width="50px " height= "50x"  </i> </a>
         <a href="#twitter" role="button" data-toggle="modal" title="" style="display:inline-block; width:1em"> <i class="icon-twitter-sign"> </i> </a>
         <a href="#youtube" role="button" data-toggle="modal" style="display:inline-block;width:1em"> <i class="icon-facetime-video"> </i> </a>
         <a href="#" title="" style="display:inline-block;width:1em"> <i class="icon-google-plus-sign"> </i> </a>
@@ -261,7 +261,7 @@
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             <button class="btn btn-primary">Save changes</button>
           </div>
-        </div>      
+        </div>
     </div>
     </div>
     </div>
@@ -273,7 +273,7 @@
 
  </div>
 
-    
+
            <!-- CUSTOM SCRIPT-->
     <script src="assets/js/custom.js"></script>
 </body>
