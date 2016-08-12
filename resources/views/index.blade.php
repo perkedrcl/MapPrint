@@ -94,12 +94,12 @@
             <br/><br/>
             <h5><b>Prijava za novosti:</b></h5>
             <form method="post" action="checkEmail">
-                <input style="color:black" id="appendedInputButton"  placeholder="Unesite E-mail adresu" type="text" name="email">
-                <input type="submit" value="Pošalji" />
+                <input style="color:black" id="appendedInputButton"  placeholder="Unesite E-mail adresu" type="email" name="email">
+                <input style="color:black" type="submit" value="Pošalji" />
             </form>
             <div class="answer">
               <h4>{{ isset($response1) ? $response1 : '' }}</h4>
-            </div>  
+            </div>
         </div>
         <div class="span5">
         <h4>Najnovije vesti:</h4>

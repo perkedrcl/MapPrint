@@ -25,18 +25,22 @@ class HomeController extends BaseController
 	}
 
     public function checkEmail(Request $request) {
-		$email_post = $request->input('email');
+    	try {
+    		$email_post = $request->input('email');
 
-		if (!filter_var($email_post, FILTER_VALIDATE_EMAIL)) {
-			$response = 'Email nije validan';
-		  	return View('index', ['response1' => $response]);
-		} else {
-			$email = new Email();
+    		if (!filter_var($email_post, FILTER_VALIDATE_EMAIL)) throw new \Exception("Email nije validan", 1);
+
+    		$email = new Email();
 			$email->email = $email_post;
 			$email->save();
+
 			$response = 'Uspešno je sačuvan vaš email';
 			return View('index', ['response1' => $response]);
-		}
+    	} catch (\Exception $e) {
+    		if ($e->getCode() === '23000') $response = 'U bazi već potosji email';
+    		else $response = $e->getMessage();
+    		return View('index', ['response1' => $response]);
+    	}
     }
     public function sendEmail(Request $request){
 		$name = $request->input('name');
