@@ -8,6 +8,10 @@ use App\Models\Email;
 
 class HomeController extends BaseController
 {
+	private function getHostMail() {
+		return 'szrmapprint@gmail.com';
+	}
+
 	public function index() {
 		return View('index');
 	}
@@ -44,8 +48,8 @@ class HomeController extends BaseController
     }
     public function sendEmail(Request $request){
 		$name = $request->input('name');
-		$email = $request->input('email');
-		$message = $request->input('message');
+		$email = $request->input('mail');
+		$message = $request->input('msg');
 		$response = '';
 
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -59,6 +63,11 @@ class HomeController extends BaseController
 		}
 
 		if ($response !== '') return View('contact', ['response2' => $response]);
-		else return View('contact', ['response2' => 'Uspešno ste poslali vaš email']);
+		else {
+			$to = self::getHostMail();
+			$response = mail($email, $email, $message);
+			if ($response === true) return View('contact', ['response2' => 'Uspešno ste poslali vaš email']);
+			else return View('contact', ['response2' => $response]);
+		}
     }
 }

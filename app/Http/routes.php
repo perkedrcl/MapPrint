@@ -59,3 +59,10 @@ $app->post( // unosi novu lozinku i potvrđuje izmene
         'uses'  =>  'HomeController@sendEmail',
     ]
 );
+$app->get( // Kontakt strana
+    'admin',
+    [
+        'as'    => "admin",
+        'uses'  => 'AdminController@getAdministrator',
+    ]
+);

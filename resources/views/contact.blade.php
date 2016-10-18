@@ -102,10 +102,10 @@
     <input name="name" placeholder="Type Here">
      <br />
     <label>E-mail:</label><br />
-    <input name="email" type="email" placeholder="Type Here">
+    <input name="mail" type="email" placeholder="Type Here">
       <br />
     <label>Message:</label><br />
-    <textarea name="message" placeholder="Type Here"></textarea>
+    <textarea name="msg" placeholder="Type Here"></textarea>
        <br/>
     <input id="submit" name="submit" type="submit" value="Submit">
 
