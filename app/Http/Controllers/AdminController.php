@@ -9,7 +9,7 @@ use App\Models\Admin;
 class AdminController extends BaseController
 {
 
-	public function admin() {
+	public function getAdmin() {
 		return View('admin');
 	}
 

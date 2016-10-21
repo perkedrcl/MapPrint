@@ -23,7 +23,7 @@
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
 
     <!--CUSTOM STYLE -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/adminstyle.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -35,7 +35,7 @@
 <div>
 
      <!--END NAV SECTION -->
-<h1>ono carevi strana u izradi</h1>
+
 
     <!--ABOUT SECTION -->
    
@@ -44,6 +44,6 @@
 
     
            <!-- CUSTOM SCRIPT-->
-    <script src="assets/js/custom.js"></script>
+    <script src="../../assets/js/custom.js"></script>
 </body>
 </html>

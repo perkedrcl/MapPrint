@@ -1,1 +1,5 @@
-$('.timezone_help').popover({placement: "bottom"});
+
+
+var myMassage = "Sajt je u izradi!!!";
+
+alert (myMassage)

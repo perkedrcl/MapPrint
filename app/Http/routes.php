@@ -39,7 +39,7 @@ $app->get( // Usluge strana
 $app->get( // Kontakt strana
     'kontakt',
     [
-        'as'    => "kontakt",
+        'as'    => "contact",
         'uses'  => 'HomeController@getContact',
     ]
 );
