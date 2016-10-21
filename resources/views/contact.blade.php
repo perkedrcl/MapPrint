@@ -137,6 +137,12 @@
                 <input type="submit" value="Pošalji" />
             </form>
             <h1>{{ isset($response1) ? $response1 : '' }}</h1>
+            <script>
+              IF (response1===resposne1){
+                alert(response1)
+              }
+
+            </script>
         </div>
         <div class="span5">
         <h4>Najnovije vesti:</h4>

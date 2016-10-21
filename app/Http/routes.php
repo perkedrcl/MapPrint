@@ -63,6 +63,6 @@ $app->get( // Kontakt strana
     'admin',
     [
         'as'    => "admin",
-        'uses'  => 'AdminController@getAdministrator',
+        'uses'  => 'AdminController@getAdmin',
     ]
 );

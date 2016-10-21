@@ -6,7 +6,7 @@ use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 
-class admin extends Model
+class Admin extends Model
 {
     public $timestamps = false;
 
@@ -22,7 +22,7 @@ class admin extends Model
     ];
 
     protected $casts = [
-        'admin'   => 'string',
+        'admin'   => 'object',
     ];
 
     /**
