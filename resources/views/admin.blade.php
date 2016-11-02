@@ -34,11 +34,16 @@
 <body>
 <div>
 
-     <!--END NAV SECTION -->
-
-
-    <!--ABOUT SECTION -->
-   
+<form method="post" action="LogIn" position="center">
+  E-mail:<br>
+  <input type="E-mail" name="firstname">
+  <br>
+  Password:<br>
+  <input type="password" name="password">
+  <br><br>
+  <input type="submit" value="prijava">
+</form>
+<h1>{{ isset($response1) ? $response1 : '' }}</h1>
 
  </div>
 
