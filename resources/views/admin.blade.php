@@ -1,54 +1,28 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- HEAD SECTION -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <title>Map Print Servis</title>
-    <!--GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <!--BOOTSTRAP MAIN STYLES -->
-    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
-    <!--FONTAWESOME MAIN STYLE -->
-    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+@extends('layouts.adminlayout')
 
-    <!--CUSTOM STYLE -->
-    <link href="assets/css/adminstyle.css" rel="stylesheet" />
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-</head>
-    <!--END HEAD SECTION -->
-<body>
-<div>
+@section('content')
+<div style="padding-top: 150px">
+    <input type="button" value="nova vest" />
+</div>
+<div style="padding-top: 150px">
+    <form class="peki_txt" action="sendEmail" method="post">
+        NASLOV:
+        <br>
+        <input type="text1">
+        <br>
+        TEKST PORUKE:
+        <br>
+        <input type="text2">
+        <br>
+        <br>
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+    </form>
+    <input type="button" value="promocija" id="peki"/>
+</div>
+<div style="padding-top: 150px">
+    <input type="button" value="prijave" action="read" method="post"/>
+</div>
+@endsection
 
-<form method="post" action="LogIn" position="center">
-  E-mail:<br>
-  <input type="E-mail" name="firstname">
-  <br>
-  Password:<br>
-  <input type="password" name="password">
-  <br><br>
-  <input type="submit" value="prijava">
-</form>
-<h1>{{ isset($response1) ? $response1 : '' }}</h1>
 
- </div>
-
-    
-           <!-- CUSTOM SCRIPT-->
-    <script src="../../assets/js/custom.js"></script>
-</body>
-</html>

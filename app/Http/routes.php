@@ -66,3 +66,17 @@ $app->get( // Kontakt strana
         'uses'  => 'AdminController@getAdmin',
     ]
 );
+$app->post(
+    'sendEmail',
+    [
+        'as'    =>  'sendEmail',
+        'uses'  =>  'AdminController@sendEmail',
+    ]
+);
+$app->post(
+    'read',
+    [
+        'as'    =>  'read',
+        'uses'  =>  'AdminController@read',
+    ]
+);

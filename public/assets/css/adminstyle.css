@@ -1,0 +1,38 @@
+body { 
+    background-repeat: no-repeat;
+    padding-top:0px;
+    text-align:center;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+input[type="button"] {
+	background:    #3d85c6;
+	/*background:    -webkit-linear-gradient(#3d85c6, #073763);
+	background:    linear-gradient(#3d85c6, #073763);*/
+	border:        1px solid #569;
+	box-shadow:    3px 3px 0 0 #444;
+	color:         #fff;
+	display:       inline-block;
+	padding:       8px 20px;
+	font:          normal 700 24px/1 "Calibri", sans-serif;
+	text-align:    center;
+	text-shadow:   1px 1px 0 #000;
+}
+
+input[type="button1"] {
+    background:    #3d85c6;
+    /*background:    -webkit-linear-gradient(#3d85c6, #073763);
+    background:    linear-gradient(#3d85c6, #073763);*/
+    border:        1px solid #569;
+    box-shadow:    3px 3px 0 0 #444;
+    color:         #fff;
+    display:       inline-block;
+    padding:       8px 20px;
+    font:          normal 700 24px/1 "Calibri", sans-serif;
+    text-align:    center;
+    text-shadow:   1px 1px 0 #000;
+}
+
+

@@ -30,4 +30,30 @@ class CreateTableEmails extends Migration
     }
 }
 
+class CreateTableNews extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('News', function($table)
+        {
+            $table->increments('id')->unsigned();
+            $table->string('email', 63)->unique();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('News');
+    }
+}
 

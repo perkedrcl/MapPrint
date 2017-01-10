@@ -43,7 +43,8 @@ class HomeController extends BaseController
     	} catch (\Exception $e) {
     		if ($e->getCode() === '23000') $response = 'U bazi već potosji email';
     		else $response = $e->getMessage();
-    		return View('index', ['response1' => $response]);
+    		return View('index'
+    			, ['response1' => $response]);
     	}
     }
     public function sendEmail(Request $request){
