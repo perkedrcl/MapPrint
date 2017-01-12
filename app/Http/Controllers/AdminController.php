@@ -4,13 +4,40 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\Subscriber;
 
 class AdminController extends BaseController
 {
 
+	private function getHostMail() {
+		return 'szrmapprint@gmail.com';
+	}
+
 	public function getAdmin() {
-		return View('admin');
+		if (isset($_SESSION['current_admin'])) {
+			return View('admin');
+		} else {
+			return View('admin_login');
+		}
+	}
+
+	public function adminLogin(Request $request) {
+		$username = $request->input('username');
+		$password = $request->input('password');
+
+		$admin = Admin::where('username', '=', $username)->first();
+		if (empty($admin)) throw new \Exception("Admin nije pronadjen", 1);
+
+		if (Hash::check($password.$admin->password_salt, $admin->password)) $_SESSION['current_admin'] = $admin->id;
+
+		return redirect('admin');
+	}
+
+	public function adminLogout() {
+		unsset($_SESSION['current_admin']);
+		return redirect('index');
 	}
 
 	public function authenticate(){
@@ -25,75 +52,26 @@ class AdminController extends BaseController
         }
     }
 
-    public function sendEmail() {
-    	$servername = "localhost";
-		$email = "email";
-		$response = '';
-		// Create connection
-		$conn = new mysqli($servername, $email);
+    public function sendEmail(Request $request) {
+    	$subject = $request->input('subject');
+    	$text = $request->input('text');
 
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
-		echo "Connected successfully";
+    	$host_mail = self::getHostMail();
+    	$header = 	'From: '.$host_mail."\r\n".
+		    		'Reply-To: '.$host_mail;
 
-		$sql = 'SELECT email FROM Emails';
-	    mysql_select_db('Emails');
-	    $retval = mysql_query( $sql, $conn );
-	   
-	    if(! $retval ) {
-	      die('Could not get data: ' . mysql_error());
-	    }
-	   
-	    while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
-	      echo "email :{$row['email']}  <br> ".
-	         "--------------------------------<br>";
-	    }
-	   
-	    echo "Fetched data successfully\n";
-	   
-	    mysql_close($conn);
+		$subscribers_email = Subscriber::get(['email'])->toArray();
 
-	    $recipients=$retval
-	    $to = 'mapprint@gmail.com';
-		$subject = "E-mail subject";
-		$body = "E-mail body";
-		$headers = 'From: mapprint@gmail.com' . "\r\n" ;
-		$headers .= 'Reply-To: mapprint@gmail.com' . "\r\n";
-		$headers .= 'BCC: ' . implode(', ', $recipients) . "\r\n";
+		$email_to = '';
 
-		mail($to, $subject, $body, $headers);
-		    
-		}
-		public function read() {
-
-		$con=mysqli_connect("Emails");
-		// Check connection
-		if (mysqli_connect_errno())
-		{
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		foreach ($subscribers_email as $sub_email) {
+			$email_to = $email_to.' '.$sub_email['email'].',';
 		}
 
-		$result = mysqli_query($con,"SELECT * FROM Emails");
+		$email_to = rtrim($email_to, ",");
 
-		echo "<table border='1'>
-			  <tr>
-			  <th>Firstname</th>
-			  <th>Lastname</th>
-			  </tr>";
+    	mail($email_to, $subject, $text, $header);
 
-		while($row = mysqli_fetch_array($result))
-		{
-		echo "<tr>";
-		echo "<td>" . $row['id'] . "</td>";
-		echo "<td>" . $row['email'] . "</td>";
-		echo "</tr>";
-		}
-		echo "</table>";
-
-		mysqli_close($con);
-
-		}
-
+    	return redirect('admin');
+    }
 }

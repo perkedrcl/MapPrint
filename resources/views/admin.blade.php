@@ -8,11 +8,11 @@
     <form class="peki_txt" action="sendEmail" method="post">
         NASLOV:
         <br>
-        <input type="text1">
+        <input type="text" name="subject">
         <br>
         TEKST PORUKE:
         <br>
-        <input type="text2">
+        <input type="text" name="text">
         <br>
         <br>
         <input type="submit" value="Send">

@@ -6,11 +6,11 @@ use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Subscriber extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'Admin';
+    protected $table = 'Subscribers';
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +18,11 @@ class Admin extends Model
      * @var array
      */
     protected $fillable = [
-        'admin',
+        'email',
     ];
 
     protected $casts = [
-        'admin'   => 'object',
+        'email'   => 'string',
     ];
 
     /**

@@ -12,7 +12,13 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Admins', function($table)
+        {
+            $table->increments('id')->unsigned();
+            $table->string('username', 63);
+            $table->string('password', 127);
+            $table->string('password_salt', 127);
+        });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Admins');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-use App\Models\Email;
+use App\Models\Subscriber;
 
 class HomeController extends BaseController
 {
@@ -30,13 +30,13 @@ class HomeController extends BaseController
 
     public function checkEmail(Request $request) {
     	try {
-    		$email_post = $request->input('email');
+    		$email = $request->input('email');
 
-    		if (!filter_var($email_post, FILTER_VALIDATE_EMAIL)) throw new \Exception("Email nije validan", 1);
+    		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) throw new \Exception("Email nije validan", 1);
 
-    		$email = new Email();
-			$email->email = $email_post;
-			$email->save();
+    		$subscriber = new Subscriber();
+			$subscriber->email = $email;
+			$subscriber->save();
 
 			$response = 'Uspešno je sačuvan vaš email';
 			return View('index', ['response1' => $response]);

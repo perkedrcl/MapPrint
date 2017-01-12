@@ -302,7 +302,11 @@ class ComposerStaticInitc70ae53d03512e75de894185db8bca20
     );
 
     public static $classMap = array (
+        'AddAdmin' => __DIR__ . '/../..' . '/database/migrations/2017_01_10_215847_add_admin.php',
+        'AlterTableName' => __DIR__ . '/../..' . '/database/migrations/2017_01_10_210051_alter_table_name.php',
+        'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_22_150908_create_admin_table.php',
         'CreateTableEmails' => __DIR__ . '/../..' . '/database/migrations/2016_08_01_164940_create_table_emails.php',
+        'CreateTableNews' => __DIR__ . '/../..' . '/database/migrations/2016_08_01_164940_create_table_emails.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

@@ -6,11 +6,11 @@ use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class Admin extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'Emails';
+    protected $table = 'Admins';
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +18,13 @@ class Email extends Model
      * @var array
      */
     protected $fillable = [
-        'email',
+        'username',
     ];
 
     protected $casts = [
-        'email'   => 'string',
+        'username'      =>  'string',
+        'password'      =>  'string',
+        'password_salt' =>  'string',
     ];
 
     /**
@@ -31,5 +33,7 @@ class Email extends Model
      * @var array
      */
     protected $hidden = [
+        'password',
+        'password_salt',
     ];
 }

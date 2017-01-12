@@ -66,6 +66,15 @@ $app->get( // Kontakt strana
         'uses'  => 'AdminController@getAdmin',
     ]
 );
+
+$app->post( // Kontakt strana
+    'admin-login',
+    [
+        'as'    => "admin-login",
+        'uses'  => 'AdminController@adminLogin',
+    ]
+);
+
 $app->post(
     'sendEmail',
     [
