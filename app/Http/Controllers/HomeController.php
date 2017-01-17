@@ -1,43 +1,32 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
-
 class HomeController extends BaseController
 {
 	private function getHostMail() {
 		return 'szrmapprint@gmail.com';
 	}
-
 	public function index() {
 		return View('index');
 	}
-
 	public function getAbout() {
 		return View('about');
 	}
-
 	public function getServices() {
 		return View('services');
 	}
-
 	public function getContact() {
 		return View('contact');
 	}
-
-    public function checkEmail(Request $request) {
+    public function subscribing(Request $request) {
     	try {
     		$email = $request->input('email');
-
     		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) throw new \Exception("Email nije validan", 1);
-
     		$subscriber = new Subscriber();
 			$subscriber->email = $email;
 			$subscriber->save();
-
 			$response = 'Uspešno je sačuvan vaš email';
 			return View('index', ['response1' => $response]);
     	} catch (\Exception $e) {
@@ -47,12 +36,11 @@ class HomeController extends BaseController
     			, ['response1' => $response]);
     	}
     }
-    public function sendEmail(Request $request){
+    public function question(Request $request){
 		$name = $request->input('name');
 		$email = $request->input('mail');
 		$message = $request->input('msg');
 		$response = '';
-
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$response = 'Email nije odgovarajućeg formata';
 		}
@@ -62,7 +50,6 @@ class HomeController extends BaseController
 		elseif (!filter_var($message, FILTER_SANITIZE_STRING)) {
 			$response = 'Poruka nije odgovarajućeg formata';
 		}
-
 		if ($response !== '') return View('contact', ['response2' => $response]);
 		else {
 			$to = self::getHostMail();

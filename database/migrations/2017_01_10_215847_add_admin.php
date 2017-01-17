@@ -13,7 +13,7 @@ class AddAdmin extends Migration
      */
     public function up()
     {
-        $username = 'szrmapprint@gmail.com';
+        $username = 'mapprintszr@gmail.com';
         $password = 'guzara11';
         $password_salt = str_random(31);
         $password = Hash::make($password.$password_salt);

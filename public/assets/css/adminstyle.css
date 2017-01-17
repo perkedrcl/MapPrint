@@ -21,7 +21,7 @@ input[type="button"] {
 	text-shadow:   1px 1px 0 #000;
 }
 
-input[type="button1"] {
+button {
     background:    #3d85c6;
     /*background:    -webkit-linear-gradient(#3d85c6, #073763);
     background:    linear-gradient(#3d85c6, #073763);*/
@@ -35,4 +35,12 @@ input[type="button1"] {
     text-shadow:   1px 1px 0 #000;
 }
 
+#peki_txt{
+    display: none;
+}
+
+#peki_txt1{
+    display: none;
+    position: center;
+}
 

@@ -21,9 +21,9 @@ $app->get( // Početna strana
 );
 
 $app->get( // O nama strana
-    'onama',
+    'o nama',
     [
-        'as'    => "onama",
+        'as'    => "o nama",
         'uses'  => 'HomeController@getAbout',
     ]
 );
@@ -36,6 +36,14 @@ $app->get( // Usluge strana
     ]
 );
 
+$app->get( // Usluge strana
+    'sadasnji pogled',
+    [
+        'as'    => "sadasnji pogled",
+        'uses'  => 'HomeController@getView',
+    ]
+);
+
 $app->get( // Kontakt strana
     'kontakt',
     [
@@ -45,20 +53,21 @@ $app->get( // Kontakt strana
 );
 
 $app->post( // unosi novu lozinku i potvrđuje izmene
-    'checkEmail',
+    'subscribing',
     [
-    	'as'	=>	'checkEmail',
-        'uses' 	=> 	'HomeController@checkEmail',
+    	'as'	=>	'subscribing',
+        'uses' 	=> 	'HomeController@subscribing',
     ]
 );
 
 $app->post( // unosi novu lozinku i potvrđuje izmene
-    'sendEmail',
+    'question',
     [
-        'as'    =>  'sendEmail',
-        'uses'  =>  'HomeController@sendEmail',
+        'as'    =>  'question',
+        'uses'  =>  'HomeController@question',
     ]
 );
+
 $app->get( // Kontakt strana
     'admin',
     [
@@ -87,5 +96,13 @@ $app->post(
     [
         'as'    =>  'read',
         'uses'  =>  'AdminController@read',
+    ]
+);
+
+$app->post(
+    'saveNews',
+    [
+        'as'    =>  'saveNews',
+        'uses'  =>  'AdminController@saveNews',
     ]
 );
