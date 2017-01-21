@@ -6,9 +6,9 @@ use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 
-class Letter extends Model
+class Story extends Model
 {
-    public $timestamps = true;
+    public $timestamps = false;
 
     protected $table = 'News';
 
@@ -19,14 +19,16 @@ class Letter extends Model
      */
     protected $fillable = [
         'headline',
-        'story text',
+        'story_text',
+        'excerpt',
         'added_on',
     ];
 
     protected $casts = [
         'headline'      =>  'string',
-        'story text'    =>  'string',
-        'added_on'      =>  'string',
+        'story_text'    =>  'string',
+        'excerpt'       =>  'string',
+        'added_on'      =>  'dateTime',
     ];
 
     /**

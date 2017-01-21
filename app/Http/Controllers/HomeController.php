@@ -3,22 +3,28 @@ namespace App\Http\Controllers;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
+use App\Models\Story;
+
 class HomeController extends BaseController
 {
 	private function getHostMail() {
 		return 'szrmapprint@gmail.com';
 	}
 	public function index() {
-		return View('index');
+		$news = Story::orderBy('added_on', 'desc')->limit(3)->get();
+		return View('index', ['news' => $news]);
 	}
 	public function getAbout() {
-		return View('about');
+		$news = Story::orderBy('added_on', 'desc')->limit(3)->get();
+		return View('about', ['news' => $news]);
 	}
 	public function getServices() {
-		return View('services');
+		$news = Story::orderBy('added_on', 'desc')->limit(3)->get();
+		return View('services', ['news' => $news]);
 	}
 	public function getContact() {
-		return View('contact');
+		$news = Story::orderBy('added_on', 'desc')->limit(3)->get();
+		return View('contact', ['news' => $news]);
 	}
     public function subscribing(Request $request) {
     	try {

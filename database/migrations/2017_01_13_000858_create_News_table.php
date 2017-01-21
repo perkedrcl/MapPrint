@@ -15,10 +15,10 @@ class CreateNewsTable extends Migration
         Schema::create('News', function($table)
         {
             $table->increments('id')->unsigned();
-            $table->text('headline');
-            $table->longText('story text');
-            $table->timestamp('added_on');
-             
+            $table->string('headline', 127);
+            $table->text('story_text');
+            $table->text('excerpt');
+            $table->dateTime('added_on')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

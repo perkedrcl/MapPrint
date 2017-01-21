@@ -84,6 +84,14 @@ $app->post( // Kontakt strana
     ]
 );
 
+$app->post( // Kontakt strana
+    'readSubs',
+    [
+        'as'    => "readSubs",
+        'uses'  => 'AdminController@readSubs',
+    ]
+);
+
 $app->post(
     'sendEmail',
     [

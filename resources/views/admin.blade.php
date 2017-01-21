@@ -50,7 +50,7 @@
     <button onclick="javascript:showDiv();">promocija</button>
 </div>
 <div style="padding-top: 150px">
-    <form action="read" method="post"> 
+    <form action="readSubs" method="post"> 
         <button >prijavljeni</button>
     </form>
 </div>

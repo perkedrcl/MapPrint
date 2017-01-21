@@ -47,36 +47,17 @@
 <div class="news">
     <div id="service-section">
         <div class="container">
-            <div class="row  text-center">
-                <div position="center">
-                    <h3 class="media-heading">Letnja akcija je pri kraju.</h3>
-                    <p>Ostalo je jos malo vremena do isteka akcije, koja napominjemo traje do kraja avgusta, Za više informacija dođite do našeg servisa ili nas kontaktirajte putem E-mail adrese.
-                        <br/>
-                        <em>14.7.2016.</em></p>
-                </div>
-                <div>
-                    <h3 class="media-heading">Otvorena Letnja akcija !!!</h3>
-                    <p>Dragi kupci želimo da Vas obavestimo da počinje letnja akcija u našem servisu, Za više informacija dođite do našeg servisa ili nas kontaktirajte putem E-mail adrese.
-                        <br/>
-                        <em>2.7.2016.</em></p>
-                </div>
-                <div>
-                    <h3>Obaveštenje:</h3>
-                    <p>Uskoro će krenuti letnja akcija u našem servisu. Očekujemo Vas da će te doći. Za više informacija dođite do našeg servisa ili nas kontaktirajte putem E-mail adrese.
-                        <br/>
-                        <em>22.6.2016.</em></p>
-                </div>
-                <div>
-                    <h3 class="media-heading">Zašto nas odabrati?</h3>
-                    <p>Naš tim čine stručna lica koja koja se bave ovim poslom. Oni imaju više godina iskustva u ovom području. Oni će Vam pomoći da rešite Vaš problem. Za više informacija o našim uslugama dođite do našeg servisa ili nas kontaktirajte putem
-                        E-mail adrese.
-                        <br/>
-                        <em>14.6.2016.</em></p>
-                </div>
-                <div>
-
-                </div>
-            </div>
+            @if(isset($news))
+                @foreach($news as $story)
+                    <div class="row  text-center">
+                        <div position="center">
+                            <h3 class="media-heading">{{ $story->headline }}</h3>
+                            <p>{{ $story->story_text }}</p>
+                            <p>Datum: <em>{{ $story->added_on }}</em></p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>

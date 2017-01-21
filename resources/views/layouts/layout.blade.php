@@ -73,6 +73,16 @@
                 <div class="row-fluid">
                     <div class="span4">
                         <h4>Novosti i prijava:</h4>
+                        @if(isset($news))
+                            @foreach($news as $story)
+                                <div class="row  text-center">
+                                    <div position="center">
+                                        <h3 class="media-heading">{{ $story->headline }}</h3>
+                                        <p>{{ $story->excerpt }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                         <h5>Naš cilj</h5>
                         <em>
             "želimo da vam pružimo najbolje uslove za sersvis Vaših toner kaseta i štampača." <br/><br/>

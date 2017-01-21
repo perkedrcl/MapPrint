@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Subscriber;
-use App\Models\Letter;
+use App\Models\Story;
 
 class AdminController extends BaseController
 {
 
 	private function getHostMail() {
 		return 'mapprintszr@gmail.com';
+	}
+
+	private function getExcerptLimit() {
+		return 50;
 	}
 
 	public function getAdmin() {
@@ -43,8 +47,7 @@ class AdminController extends BaseController
     	$subject = $request->input('subject');
     	$text = $request->input('text');
 
-
-    //	$host_mail = self::getHostMail();
+    	$host_mail = self::getHostMail();
     	$header = 	'From: '.$host_mail."\r\n".
 		    		'Reply-To: '.$host_mail;
 
@@ -53,39 +56,49 @@ class AdminController extends BaseController
 		$email_to = '';
 
 		foreach ($subscribers_email as $sub_email) {
-			$email_to = $email_to.' '.$sub_email['email'].',';
+			$email_to = $email_to.$sub_email['email'].', ';
 		}
 	
-
-	$email_to = rtrim($email_to, ",");
-	
-	mail($email_to, $subject, $text, $header);
-	
-	return redirect('admin');
+		$email_to = rtrim($email_to, ", ");
+		
+		mail($email_to, $subject, $text, $header);
+		
+		return redirect('admin');
    }
 
-   public function read(Request $request) {
-    	$subject = $request->input('subject');
-    	$text = $request->input('text');
+   public function readSubs() {
+   		if (isset($_SESSION['current_admin'])) {
+			$subscribers_emails = Subscriber::get(['email']);
+			$email_to = '';
 
-		$subscribers_email = Subscriber::get(['email'])->toArray();
-
-		$email_to = '';
-
-		foreach ($subscribers_email as $sub_email) {
-			$email_to = $email_to.' '.$sub_email['email'].',';
+			return view('read', ['emails' => $subscribers_emails]);		
+			//var_dump($subscribers_email); var_dump se samo koristi radi debagovanja koda nemoj tako da 
+			//ispisujes promenljive!!!
+		} else {
+			return View('admin_login');
 		}
-		
-		var_dump($subscribers_email);
 	}
 
-	public function saveNews(Request $request){
-		$headline = $request->input('headline');
-    	$letter = new Letter();
-		$letter->headline = $headline;
-		$letter->save();
+	public function saveNews(Request $request) {
+		if (isset($_SESSION['current_admin'])) {
+			$headline = $request->input('headline');
+			$text = $request->input('story');
+
+			$excerpt_limit = self::getExcerptLimit();
+			$excerpt = substr($text, 0, $excerpt_limit);
+			if (strrpos($excerpt, '.') !== false) $excerpt = substr($excerpt, 0, strrpos($excerpt, '.') + 1);
+			if (strlen($text) > $excerpt_limit) $excerpt .=' ...';
+
+			//Kreira se objekat 
+	    	$story = new Story();
+			$story->headline = $headline;
+			$story->story_text = $text;
+			$story->excerpt = $excerpt;
+			$story->save();
+
+			return redirect('admin');
+		} else {
+			return View('admin_login');
+		}
 	}
-	
-
-
 }
