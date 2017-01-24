@@ -66,35 +66,24 @@
 
         <!--FOOTER SECTION -->
 
-    </div>
     <section id="footerSection" background-color=# 000000>
         <div class="container" background-color=# 000000>
             <footer class="footer well well-small" background-color=# 000000>
                 <div class="row-fluid">
                     <div class="span4">
                         <h4>Novosti i prijava:</h4>
-                        @if(isset($news))
-                            @foreach($news as $story)
-                                <div class="row  text-center">
-                                    <div position="center">
-                                        <h3 class="media-heading">{{ $story->headline }}</h3>
-                                        <p>{{ $story->excerpt }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
                         <h5>Naš cilj</h5>
                         <em>
-            "želimo da vam pružimo najbolje uslove za sersvis Vaših toner kaseta i štampača." <br/><br/>
-            </em>
+                    "želimo da vam pružimo najbolje uslove za sersvis Vaših toner kaseta i štampača." <br/><br/>
+                    </em>
                         <h5>Šta kažu naši klijenti?</h5>
                         <em>
-            "Povoljne cene, svaki dogovor ispoštovan nije bilo problema sa rokovima :)"
-            </em>
+                    "Povoljne cene, svaki dogovor ispoštovan nije bilo problema sa rokovima :)"
+                    </em>
                         <br/>
                         <br/>
                         <h5><b>Prijava za novosti:</b></h5>
-                       <div data-role="main" class="ui-content">                        
+                        <div data-role="main" class="ui-content">                        
                           <form method="post" action="subscribing">
                             <div>
                               <h3>Vaš e-mail:</h3>
@@ -104,67 +93,40 @@
                               <input type="submit" data-inline="true" value="prijava" style="color:black" >
                             </div>
                           </form>
-                        </div>
-                      </div>
-                        <div class="answer">
-                            <h4>{{ isset($response1) ? $response1 : '' }}</h4>
-                        </div>
                     </div>
-                    <div class="span5">
-                        <h4>Najnovije vesti:</h4>
-                        <ul class="media-list">
-                            <li class="media">
-                                <a class="pull-left" href="Services.html">
-                                    <img class="media-object" src="assets/img/img64x64.png" alt="bootstrap business template">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading">Letnja akcija je pri kraju.</h5> "Ostalo je jos malo vremena do isteka ak..."
-                                    <br/>
-                                    <small><em>jul 14, 2016</em> <a href="Services.html"> Više</a></small>
+                </div>
+                <div class="answer">
+                    <h4>{{ isset($response1) ? $response1 : '' }}</h4>
+                </div>
+                <div class="span5">
+                    <h4>Najnovije vesti:</h4>
+                    @if(isset($news))
+                            @foreach($news as $story)
+                                <div class="row  text-center">
+                                    <div position="center">
+                                        <h3 class="media-heading">{{ $story->headline }}</h3>
+                                        <p>{{ $story->excerpt }}</p>
+                                    </div>
                                 </div>
-                            </li>
-                            <li class="media">
-                                <a class="pull-left" href="Services.html">
-                                    <img class="media-object" src="assets/img/img64x64.png" alt="bootstrap business template">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading">Otvorena letnja akcija!</h5> "Želimo da Vam omogućimo najpovoljnije ..."
-                                    <br/>
-                                    <small><em>Jul 02, 2016</em> <a href="Services.html"> Više</a></small>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="pull-left" href="Services.html">
-                                    <img class="media-object" src="assets/img/img64x64.png" alt="bootstrap business template">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading">Obaveštenje:</h5> "Počinje sezona vrućih sniženja samo z..."
-                                    <br/>
-                                    <small><em>jun 22, 2016</em> <a href="Services.html"> Više</a></small>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a class="pull-left" href="Services.html">
-                                    <img class="media-object" src="assets/img/img64x64.png" alt="bootstrap business template">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="media-heading">Zasto nas odabrati?</h5> "Naša profesionalna usluga će ostaviti u Vam ..."
-                                    <br/>
-                                    <small><em>Jun 14, 2016</em> <a href="Services.html"> Više</a></small>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                            @endforeach
+                    @endif
+                </div>
 
-                    <div class="span3">
-                        <h4>Posetite nas</h4>
-                        <address style="margin-bottom:15px;">
-            <strong><a href="index.html" title="business"><i class=" icon-home"></i> SZR Map Print </a></strong><br>
-                Skender begova 20-22, Stari grad<br>
-                11000 Beograd, Srbija<br>
-            </address> Telefon: <i class="icon-phone-sign"></i> &nbsp; 063 8375 122
-                        <br> E-mail: <a href="contact.html" title="contact"><i class="icon-envelope-alt"></i> mapprintszr@gmail.com</a>
-                        <br/> Link: <a href="index.html" title="Business ltd"><i class="icon-globe"></i> www.mapprint.com</a>
+                <div class="span3">
+                    <h4>Posetite nas</h4>
+                    <address style="margin-bottom:15px;">
+                        <strong><a href="index.html" title="business"><i class=" icon-home"></i> SZR Map Print </a></strong><br>
+                            Skender begova 20-22, Stari grad<br>
+                            11000 Beograd, Srbija<br>
+                    </address> 
+                    Telefon: 
+                    <i class="icon-phone-sign"></i> &nbsp; 063 8375 122
+                    <br>
+                    E-mail:
+                    <a href="contact.html" title="contact"><i class="icon-envelope-alt"></i>mapprintszr@gmail.com</a>
+                    <br/> 
+                    Link: 
+                    <a href="index.html" title="Business ltd"><i class="icon-globe"></i> www.mapprint.com</a>
                         <br/>
                         <br/>
                         <h5>Brzi linkovi:</h5>
@@ -175,29 +137,18 @@
                         <a href="contact.html" title="contact"><i class="icon-question-sign"></i> Kontakt </a>
                         <br/>
 
-                        <h5>Nađite nas na:</h5>
-                        <div style="font-size:2.5em;">
-                            <a href="https://www.facebook.com/profile.php?id=100010487207319&fref=ts" role="button" data-toggle="modal" style="display:inline-block; width:1em"> <i class="icon-facebook-sign"><img src= "assets/img/facebook.png" width="50px " height= "50x">  </i> </a>
-                        </div>
-                            <br>
-                            <br>
-                           
+                    <h5>Nađite nas na:</h5>
+                    <div style="font-size:2.5em;">
+                        <a href="https://www.facebook.com/profile.php?id=100010487207319&fref=ts" role="button" data-toggle="modal" style="display:inline-block; width:1em"> <i class="icon-facebook-sign"><img src= "assets/img/facebook.png" width="50px " height= "50x"></i> </a>
+                    </div>
+                    <br>
+                    <br>
+                </div>    
                 <p style="padding:18px 0 44px"><h12>szrMapPrint&copy; 2017, allright reserved </h12></p>
             </footer>
         </div>
-        <!-- /container -->
     </section>
-
-    </div>
-    <!-- Javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
-
-
-
-    <!--END FOOTER SECTION -->
-    </div>
+</div>
 </body>
 
 </html>
