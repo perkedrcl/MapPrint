@@ -50,7 +50,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/">Početna</a></li>
-                        <li><a href="/onama">O nama</a></li>
+                        <li><a href="/o-nama">O nama</a></li>
                         <li><a href="/usluge">Usluge</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
                     </ul>

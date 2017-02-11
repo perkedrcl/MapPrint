@@ -21,7 +21,7 @@ $app->get( // Početna strana
 );
 
 $app->get( // O nama strana
-    'o nama',
+    'o-nama',
     [
         'as'    => "o nama",
         'uses'  => 'HomeController@getAbout',

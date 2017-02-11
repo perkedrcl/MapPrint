@@ -69,8 +69,7 @@ class AdminController extends BaseController
    public function readSubs() {
    		if (isset($_SESSION['current_admin'])) {
 			$subscribers_emails = Subscriber::get(['email']);
-
-			return view('readSubs', ['emails' => $subscribers_emails]);		
+			return view('readSubs', ['subscribers_emails' => $subscribers_emails]);		
 			//var_dump($subscribers_email); var_dump se samo koristi radi debagovanja koda nemoj tako da 
 			//ispisujes promenljive!!!
 		} else {
